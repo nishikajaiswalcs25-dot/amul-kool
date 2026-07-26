@@ -3,6 +3,16 @@ const fs = require('node:fs');
 const path = require('node:path');
 const crypto = require('node:crypto');
 
+function loadEnvironmentFile() {
+  const envFile = path.join(__dirname, '.env');
+  if (!fs.existsSync(envFile)) return;
+  for (const line of fs.readFileSync(envFile, 'utf8').split(/\r?\n/)) {
+    const match = line.match(/^\s*([A-Z0-9_]+)\s*=\s*(.*?)\s*$/);
+    if (match && !process.env[match[1]]) process.env[match[1]] = match[2].replace(/^['"]|['"]$/g, '');
+  }
+}
+
+loadEnvironmentFile();
 const PORT = Number(process.env.PORT || 3000);
 const DATA_FILE = path.join(__dirname, 'data.json');
 const FRONTEND_FILE = path.join(__dirname, 'final amul kool website with backend.html');
@@ -83,6 +93,25 @@ function validPassword(password) {
   return typeof password === 'string' && password.length >= 6 && password.length <= 128;
 }
 
+async function sendSubscriptionEmail(email) {
+  const apiKey = process.env.BREVO_API_KEY;
+  const senderEmail = process.env.BREVO_SENDER_EMAIL;
+  if (!apiKey || !senderEmail) return false;
+  const senderName = process.env.BREVO_SENDER_NAME || 'Amul Kool';
+  const response = await fetch('https://api.brevo.com/v3/smtp/email', {
+    method: 'POST',
+    headers: { 'accept': 'application/json', 'api-key': apiKey, 'content-type': 'application/json' },
+    body: JSON.stringify({
+      sender: { name: senderName, email: senderEmail },
+      to: [{ email }],
+      subject: 'Welcome to the Amul Kool Rose Club!',
+      htmlContent: `<main style="font-family:Arial,sans-serif;color:#28171a"><h1 style="color:#b02047">Welcome to the Rose Club!</h1><p>Thanks for joining Amul Kool.</p><p>You will be the first to hear about exclusive offers, recipes, and new flavours.</p><p style="font-weight:bold">Stay cool,<br>Amul Kool</p></main>`
+    })
+  });
+  if (!response.ok) throw new Error(`Brevo email request failed (${response.status}).`);
+  return true;
+}
+
 function getCart(cartId) {
   return data.carts[cartId] || { id: cartId, items: [] };
 }
@@ -125,7 +154,14 @@ const server = http.createServer(async (request, response) => {
         data.subscribers.push({ email: normalizedEmail, subscribedAt: new Date().toISOString() });
         saveData();
       }
-      return sendJson(response, 201, { message: 'You are on the notification list.', alreadySubscribed: exists });
+      try {
+        const sent = await sendSubscriptionEmail(normalizedEmail);
+        const message = sent ? 'You are on the notification list. Check your inbox for a welcome email.' : 'You are on the notification list. Email delivery will activate once Brevo is configured.';
+        return sendJson(response, 201, { message, alreadySubscribed: exists, emailSent: sent });
+      } catch (error) {
+        console.error('Brevo email error:', error.message);
+        return sendJson(response, 502, { error: 'Your email was saved, but the confirmation email could not be sent.' });
+      }
     }
 
     if (request.method === 'POST' && pathname === '/api/auth/register') {
