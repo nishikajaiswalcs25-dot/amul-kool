@@ -27,3 +27,6 @@ The server listens on `http://localhost:3000`.
 Paste the contents of `frontend-integration.js` immediately before the closing `</body>` tag in the supplied HTML. It connects the existing Notify Me form and Shop Now/cart buttons to the backend.
 
 Before using real payments, replace the JSON file with a database and integrate an authenticated payment provider.
+## 🚀 Live Demo
+
+[View Live Website](https://amul-kool.onrender.com)
