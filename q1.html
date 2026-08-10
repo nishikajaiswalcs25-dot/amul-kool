@@ -1,0 +1,155 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ques1</title>
+    <link rel="stylesheet"href="style.css">
+</head>
+<body>
+    <div id="box">nishika jaiswal</div>
+    
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Chotu</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+    body{
+      min-height:100vh;
+      background:linear-gradient(135deg,#ffb6c1,#ff69b4,#ffc0cb);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+    }
+    .card{
+      width:min(900px,95vw);
+      background:rgba(255,255,255,.2);
+      backdrop-filter:blur(12px);
+      border-radius:28px;
+      padding:30px 22px;
+      box-shadow:0 15px 45px rgba(255,105,180,.35);
+      color:#fff;
+      position:relative;
+    }
+    .music-btn{
+      position:absolute;
+      top:16px;
+      right:16px;
+      width:56px;
+      height:56px;
+      border:none;
+      border-radius:50%;
+      background:#fff;
+      color:#ff4fa3;
+      font-size:22px;
+      font-weight:700;
+      cursor:pointer;
+      z-index:9999;
+      pointer-events:auto;
+    }
+    h1{text-align:center;font-size:42px;margin-top:18px}
+    h2{text-align:center;font-size:24px;margin:10px 0 16px}
+    .name{color:#fff7a8;font-weight:800}
+    p{text-align:center;font-size:18px;line-height:1.7;margin-bottom:8px}
+    .photos{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+      gap:12px;
+      margin-top:18px;
+    }
+    .photo-box{
+      background:rgba(255,255,255,.16);
+      border-radius:16px;
+      padding:8px;
+    }
+    .photo-box img{
+      width:100%;
+      height:200px;
+      object-fit:cover;
+      border-radius:12px;
+      display:block;
+    }
+    .btn{
+      display:inline-block;
+      margin:18px auto 0;
+      padding:12px 22px;
+      background:#fff;
+      color:#ff4fa3;
+      border:none;
+      border-radius:999px;
+      font-weight:700;
+      cursor:pointer;
+      text-decoration:none;
+      display:block;
+      width:max-content;
+    }
+    .reveal{
+      display:none;
+      margin-top:14px;
+      background:rgba(255,255,255,.16);
+      border-radius:16px;
+      padding:16px;
+      text-align:center;
+      font-size:17px;
+    }
+    .show{display:block}
+  </style>
+</head>
+<body>
+  <audio id="bgMusic" preload="auto" loop>
+    <source src="song.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="card">
+    <button class="music-btn" id="musicBtn" type="button">▶</button>
+
+    <h1>Happy Birthday Him</h1>
+    <h2>For My Sweet <span class="name">Chotu</span></h2>
+    <p>Wishing you love, smile, and endless happiness.</p>
+    <p>May your day be full of pink vibes and sweet memories.</p>
+
+    <button class="btn" id="surpriseBtn" type="button">Open Surprise</button>
+    <div class="reveal" id="surpriseBox">
+      Tu meri life ka special part hai. Ye page sirf tere liye bana hai.
+    </div>
+
+    <div class="photos">
+      <div class="photo-box"><img src="photo1.jpg" alt="Photo 1"></div>
+      <div class="photo-box"><img src="photo2.jpg" alt="Photo 2"></div>
+      <div class="photo-box"><img src="photo3.jpg" alt="Photo 3"></div>
+    </div>
+  </div>
+
+  <script>
+    const bgMusic = document.getElementById('bgMusic');
+    const musicBtn = document.getElementById('musicBtn');
+    const surpriseBtn = document.getElementById('surpriseBtn');
+    const surpriseBox = document.getElementById('surpriseBox');
+
+    musicBtn.addEventListener('click', async () => {
+      try {
+        if (bgMusic.paused) {
+          await bgMusic.play();
+          musicBtn.textContent = '⏸';
+        } else {
+          bgMusic.pause();
+          musicBtn.textContent = '▶';
+        }
+      } catch (err) {
+        console.error('Audio play failed:', err);
+        alert('Song play nahi hua. Check song.mp3 file.');
+      }
+    });
+
+    surpriseBtn.addEventListener('click', () => {
+      surpriseBox.classList.toggle('show');
+    });
+  </script>
+</body>
+</html>

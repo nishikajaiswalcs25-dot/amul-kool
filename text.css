@@ -1,0 +1,42 @@
+/* p{
+    text-align: center;
+    text-decoration-color: blue;
+    font-family: monospace;
+    line-height:2px;
+}
+h4{
+    text-align: center;
+    text-decoration: red dotted underline;
+    font-weight: bolder;
+    font-size:200px ;
+   text-transform:uppercase;
+}
+button a{
+color:pink;
+text-decoration: none;
+} */
+ /* h1{
+    text-transform: capitalize;
+    text-align: center;
+ } */
+  /* p{
+    font-family: 'Times New Roman', Times, serif;
+  } */
+   /* #inner{
+    font-size: 10px;
+    background-color: blueviolet;
+    height: 50px;
+    width: 50px;
+   }
+   #outer{
+    font-size: 25px;
+   } */
+    div{
+      height: 100px;
+      width: 200px;
+      border-width: 2px;
+      background-color: pink;
+      border-style: dashed;
+      text-align: right;
+      border-radius: 10px;
+    }

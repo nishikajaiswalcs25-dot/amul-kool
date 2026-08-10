@@ -1,0 +1,45 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet"href="style.css">
+</head>
+<body>
+    <h1  class="heading">nishika</h1>
+    <h2  class="heading">nishi</h2>
+
+    <h3  class="heading">nish</h3>
+
+    
+</body>
+</html> -->
+<script>
+const music = document.getElementById("bgMusic");
+
+// Page unlock hone ke baad automatically music play karne ki koshish karega
+function startMusic() {
+    music.volume = 0.8;
+    music.play().catch(() => {
+        // Agar browser autoplay block kare to
+        document.addEventListener("click", () => {
+            music.play();
+        }, { once: true });
+    });
+}
+
+const lock = document.getElementById("lock");
+
+const observer = new MutationObserver(() => {
+    if (lock.classList.contains("open")) {
+        startMusic();
+        observer.disconnect();
+    }
+});
+
+observer.observe(lock, {
+    attributes: true,
+    attributeFilter: ["class"]
+});
+</script>

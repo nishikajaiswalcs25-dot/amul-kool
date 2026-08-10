@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm Sorry</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f4f0;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInSlide 1s ease-out forwards;
+        }
+        @keyframes fadeInSlide {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+       
+        .section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: #ffe6e6; 
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            color: #d2691e; /* Soft brown */
+        }
+        .section p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        .section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .section li {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+      
+        .photo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .polaroid {
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            transform: rotate(-2deg); 
+        }
+        .polaroid img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 3px;
+            display: block;
+        }
+        .buttons {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .accept {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .accept:hover {
+            background-color: #45a049;
+        }
+        .reject {
+            background-color: #f44336;
+            color: white;
+            position: absolute; 
+        }
+       
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease-out;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .modal-content p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        .close-btn {
+            background-color: #d2691e;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+       
+        @media (max-width: 768px) {
+            .section h2 {
+                font-size: 1.5rem;
+            }
+            .section p {
+                font-size: 1rem;
+            }
+            .btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+            .polaroid {
+                max-width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <section class="section fade-in">
+            <h2>I'm truly sorry</h2>
+            <p>I realize I've hurt you, and I'm deeply sorry. I value our relationship more than anything, and I want to make things right. Please forgive me.</p>
+            <div class="photo">
+                <div class="polaroid">
+                    <img src="your-couple-photo.jpg" alt="Us together">
+                </div>
+            </div>
+        </section>
+        
+       
+        <section class="section fade-in">
+            <h2>Our Precious Memories</h2>
+            <p>tujhe pta h ..hum sath kitne achhe dikhte h.....agar bhul gyi ho to dnadiya night yaad kar humari pheli photo....jis hum humesha special batate h ....or hum kitni baate karte h..or daily ka libary or canteen jaana ....per najar bht buri cheez h</p>
+        </section>
+        
+       
+        <section class="section fade-in">
+            <h2>My Promises to You</h2>
+            <ul>
+                <li>I will listen more attentively to your thoughts and feelings.</li>
+                <li>I will respect your emotions and never take them for granted.</li>
+                <li>I will not repeat the same mistake and learn from this.</li>
+            </ul>
+        </section>
+        
+       
+        <div class="buttons fade-in">
+            <button class="btn accept" onclick="acceptApology()">Accept</button>
+            <button class="btn reject" id="reject-btn">Reject</button>
+        </div>
+    </div>
+
+    
+    <div class="modal" id="accept-modal">
+        <div class="modal-content">
+            <p>Thank you for giving us another chance ❤️<br>I promise I’ll do better.</p>
+            <button class="close-btn" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <script>
+       
+        const sections = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        });
+        sections.forEach(section => {
+            observer.observe(section);
+            section.style.animationPlayState = 'paused';
+        });
+
+        
+        const rejectBtn = document.getElementById('reject-btn');
+        rejectBtn.addEventListener('mouseenter', moveButton);
+        rejectBtn.addEventListener('click', moveButton);
+
+        function moveButton() {
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+            const btnRect = rejectBtn.getBoundingClientRect();
+            
+           
+            const maxX = viewportWidth - btnRect.width;
+            const maxY = viewportHeight - btnRect.height;
+            
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+            
+            rejectBtn.style.left = randomX + 'px';
+            rejectBtn.style.top = randomY + 'px';
+            rejectBtn.style.transition = 'all 0.3s ease';
+        }
+
+        
+        function acceptApology() {
+            const modal = document.getElementById('accept-modal');
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('accept-modal');
+            modal.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

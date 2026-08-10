@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Tadakasur ✨</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:linear-gradient(135deg,#0f0d16,#1a1230,#0e1625);
+font-family:'Poppins',sans-serif;
+overflow-x:hidden;
+color:white;
+position:relative;
+}
+
+/* SCROLL BAR */
+
+::-webkit-scrollbar{
+width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+background:#ffd6ec;
+border-radius:20px;
+}
+
+/* LOADER */
+
+.loader{
+position:fixed;
+width:100%;
+height:100vh;
+background:#0f0d16;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:9999;
+animation:fadeOut 2s forwards;
+animation-delay:2.5s;
+}
+
+.loader h1{
+font-size:3rem;
+font-family:'Cormorant Garamond',serif;
+color:#ffd6ec;
+letter-spacing:4px;
+}
+
+@keyframes fadeOut{
+to{
+opacity:0;
+visibility:hidden;
+}
+}
+
+/* PARTICLES */
+
+.particle{
+position:fixed;
+pointer-events:none;
+opacity:0.7;
+animation:float linear infinite;
+z-index:1;
+}
+
+@keyframes float{
+from{
+transform:translateY(100vh) rotate(0deg);
+}
+
+to{
+transform:translateY(-10vh) rotate(360deg);
+}
+}
+
+/* MUSIC BUTTON */
+
+.music-btn{
+position:fixed;
+top:20px;
+right:20px;
+width:60px;
+height:60px;
+border-radius:50%;
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(10px);
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:1.4rem;
+cursor:pointer;
+z-index:999;
+border:1px solid rgba(255,255,255,0.2);
+transition:0.4s;
+}
+
+.music-btn:hover{
+transform:scale(1.1);
+}
+
+/* HERO */
+
+.hero{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+padding:20px;
+position:relative;
+z-index:2;
+}
+
+.tag{
+letter-spacing:4px;
+text-transform:uppercase;
+font-size:12px;
+color:#d9cfff;
+margin-bottom:20px;
+}
+
+.hero h1{
+font-size:6rem;
+line-height:1;
+font-family:'Cormorant Garamond',serif;
+animation:glow 3s infinite alternate;
+}
+
+.hero h1 span{
+color:#ffd6ec;
+}
+
+@keyframes glow{
+from{
+text-shadow:0 0 10px rgba(255,214,236,0.3);
+}
+
+to{
+text-shadow:0 0 30px rgba(255,214,236,0.8);
+}
+}
+
+.hero p{
+margin-top:25px;
+max-width:650px;
+line-height:1.8;
+color:#f0e8ff;
+font-size:1rem;
+}
+
+/* BUTTON */
+
+button{
+margin-top:35px;
+padding:15px 35px;
+border:none;
+border-radius:50px;
+background:#ffd6ec;
+color:#24142e;
+font-size:1rem;
+font-weight:600;
+cursor:pointer;
+transition:0.4s;
+}
+
+button:hover{
+transform:scale(1.08);
+box-shadow:0 0 20px #ffd6ec;
+}
+
+/* COUNTDOWN */
+
+.countdown-section{
+padding:120px 20px;
+text-align:center;
+position:relative;
+z-index:2;
+}
+
+.countdown-section h2{
+font-size:3rem;
+margin-bottom:50px;
+font-family:'Cormorant Garamond',serif;
+}
+
+.countdown{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:25px;
+}
+
+.countdown div{
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(10px);
+padding:30px;
+border-radius:25px;
+min-width:120px;
+transition:0.3s;
+}
+
+.countdown div:hover{
+transform:translateY(-10px);
+}
+
+.countdown span{
+font-size:2.5rem;
+font-weight:bold;
+color:#ffd6ec;
+}
+
+/* LETTER */
+
+.letter{
+padding:120px 20px;
+display:flex;
+justify-content:center;
+position:relative;
+z-index:2;
+}
+
+.letter-box{
+max-width:800px;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(15px);
+padding:60px;
+border-radius:35px;
+line-height:2;
+box-shadow:0 10px 40px rgba(0,0,0,0.4);
+}
+
+.letter-box h2{
+font-size:3rem;
+margin-bottom:30px;
+font-family:'Cormorant Garamond',serif;
+color:#ffd6ec;
+}
+
+/* GALLERY */
+
+.gallery{
+padding:120px 20px;
+text-align:center;
+position:relative;
+z-index:2;
+}
+
+.gallery h2{
+font-size:3rem;
+margin-bottom:60px;
+font-family:'Cormorant Garamond',serif;
+}
+
+.photos{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:40px;
+}
+
+.polaroid{
+background:white;
+padding:15px 15px 60px;
+width:260px;
+box-shadow:0 10px 25px rgba(0,0,0,0.5);
+transition:0.4s;
+}
+
+.polaroid:hover{
+transform:scale(1.08) rotate(0deg);
+}
+
+.polaroid img{
+width:100%;
+height:320px;
+object-fit:cover;
+}
+
+.rotate1{
+transform:rotate(-6deg);
+}
+
+.rotate2{
+transform:rotate(6deg);
+}
+
+/* REEL */
+
+.reel-section{
+padding:120px 20px;
+text-align:center;
+position:relative;
+z-index:2;
+}
+
+.reel-section h2{
+font-size:3rem;
+margin-bottom:40px;
+font-family:'Cormorant Garamond',serif;
+}
+
+.reel-box{
+display:flex;
+justify-content:center;
+}
+
+.reel-box iframe{
+width:350px;
+height:620px;
+border:none;
+border-radius:25px;
+box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* TIMELINE */
+
+.timeline{
+padding:120px 20px;
+max-width:850px;
+margin:auto;
+position:relative;
+z-index:2;
+}
+
+.timeline h2{
+text-align:center;
+font-size:3rem;
+margin-bottom:60px;
+font-family:'Cormorant Garamond',serif;
+}
+
+.timeline-item{
+display:flex;
+gap:20px;
+margin-bottom:40px;
+}
+
+.dot{
+width:18px;
+height:18px;
+border-radius:50%;
+background:#ffd6ec;
+margin-top:8px;
+box-shadow:0 0 15px #ffd6ec;
+}
+
+.content{
+flex:1;
+background:rgba(255,255,255,0.06);
+padding:25px;
+border-radius:20px;
+}
+
+/* FINAL */
+
+.final{
+min-height:90vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+padding:20px;
+position:relative;
+z-index:2;
+}
+
+.final h2{
+font-size:4rem;
+font-family:'Cormorant Garamond',serif;
+}
+
+.surprise{
+margin-top:40px;
+font-size:2rem;
+color:#ffd6ec;
+animation:pulse 2s infinite alternate;
+display:none;
+}
+
+@keyframes pulse{
+from{
+transform:scale(1);
+text-shadow:0 0 10px #ffd6ec;
+}
+
+to{
+transform:scale(1.08);
+text-shadow:0 0 25px #ff9fd1;
+}
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:4rem;
+}
+
+.countdown div{
+min-width:90px;
+}
+
+.letter-box{
+padding:35px;
+}
+
+.final h2{
+font-size:3rem;
+}
+
+.reel-box iframe{
+width:300px;
+height:540px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- LOADER -->
+
+<div class="loader">
+<h1>Loading memories...</h1>
+</div>
+
+<!-- MUSIC BUTTON -->
+
+<div class="music-btn" onclick="toggleMusic()">
+🎵
+</div>
+
+<!-- MUSIC -->
+
+<audio id="music" autoplay loop>
+<source src="yourmusic.ogg" type="audio/ogg">
+</audio>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<p class="tag">
+for the birthday boy
+</p>
+
+<h1>
+Happy Birthday <br>
+<span>Tadakasur</span>
+</h1>
+
+<p>
+a soft little pinterest-core corner made with love, memories and beautiful moments ✨
+</p>
+
+<button onclick="scrollToLetter()">
+Open Me 💌
+</button>
+
+</section>
+
+<!-- COUNTDOWN -->
+
+<section class="countdown-section">
+
+<h2>Until Your Special Day 🎂</h2>
+
+<div class="countdown">
+
+<div>
+<span id="days">00</span>
+<p>Days</p>
+</div>
+
+<div>
+<span id="hours">00</span>
+<p>Hours</p>
+</div>
+
+<div>
+<span id="minutes">00</span>
+<p>Minutes</p>
+</div>
+
+<div>
+<span id="seconds">00</span>
+<p>Seconds</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- LETTER -->
+
+<section class="letter" id="letter">
+
+<div class="letter-box">
+
+<h2>💌 A Letter For You</h2>
+
+<p>
+Dear Tadakasur,
+<br><br>
+
+Some people feel like poetry without trying.
+Like sunsets, late night playlists,
+peaceful skies and soft memories.
+
+<br><br>
+
+Thank you for existing in such a beautiful way.
+I hope this year gives you happiness,
+peace, unforgettable memories,
+success and all the love you deserve.
+
+<br><br>
+
+You deserve every beautiful thing this world has to offer.
+Happy Birthday ✨
+</p>
+
+</div>
+
+</section>
+
+<!-- GALLERY -->
+
+<section class="gallery">
+
+<h2>little memories 📸</h2>
+
+<div class="photos">
+
+<div class="polaroid rotate1">
+<img src="yourphoto1.png">
+</div>
+
+<div class="polaroid rotate2">
+<img src="yourphoto2.png">
+</div>
+
+</div>
+
+</section>
+
+<!-- INSTAGRAM REEL -->
+
+<section class="reel-section">
+
+<h2>our vibe 🎞️</h2>
+
+<div class="reel-box">
+
+<iframe 
+src="https://www.instagram.com/reel/DYwzgWfK-HO/embed">
+</iframe>
+
+</div>
+
+</section>
+
+<!-- TIMELINE -->
+
+<section class="timeline">
+
+<h2>our little timeline 🌙</h2>
+
+<div class="timeline-item">
+<div class="dot"></div>
+
+<div class="content">
+<h3>The First Conversation</h3>
+<p>the moment everything started feeling different.</p>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="dot"></div>
+
+<div class="content">
+<h3>Late Night Talks</h3>
+<p>those little moments that slowly became memories.</p>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="dot"></div>
+
+<div class="content">
+<h3>Today ✨</h3>
+<p>celebrating you and your beautiful existence.</p>
+</div>
+</div>
+
+</section>
+
+<!-- FINAL -->
+
+<section class="final">
+
+<h2>One Last Thing...</h2>
+
+<button onclick="showSurprise()">
+Click For Surprise 🎁
+</button>
+
+<div class="surprise" id="surprise">
+YOU ARE LOVED MORE THAN YOU KNOW ✨
+</div>
+
+</section>
+
+<script>
+
+// SCROLL
+
+function scrollToLetter(){
+
+document.getElementById("letter")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+// SURPRISE
+
+function showSurprise(){
+
+document.getElementById("surprise")
+.style.display="block";
+
+}
+
+// MUSIC
+
+const music =
+document.getElementById("music");
+
+function toggleMusic(){
+
+if(music.paused){
+
+music.play();
+
+}
+
+else{
+
+music.pause();
+
+}
+
+}
+
+// COUNTDOWN
+
+const birthday =
+new Date("June 10, 2026 00:00:00").getTime();
+
+setInterval(()=>{
+
+const now =
+new Date().getTime();
+
+const distance =
+birthday - now;
+
+document.getElementById("days")
+.innerHTML =
+Math.floor(distance/(1000*60*60*24));
+
+document.getElementById("hours")
+.innerHTML =
+Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+
+document.getElementById("minutes")
+.innerHTML =
+Math.floor((distance%(1000*60*60))/(1000*60));
+
+document.getElementById("seconds")
+.innerHTML =
+Math.floor((distance%(1000*60))/1000);
+
+},1000);
+
+// PARTICLES
+
+const symbols =
+["✦","♡","☾","✧","❀"];
+
+for(let i=0;i<70;i++){
+
+let particle =
+document.createElement("div");
+
+particle.classList.add("particle");
+
+particle.innerHTML =
+symbols[Math.floor(Math.random()*symbols.length)];
+
+particle.style.left =
+Math.random()*100 + "vw";
+
+particle.style.fontSize =
+(12 + Math.random()*22) + "px";
+
+particle.style.animationDuration =
+(5 + Math.random()*10) + "s";
+
+particle.style.animationDelay =
+Math.random()*5 + "s";
+
+document.body.appendChild(particle);
+
+}
+
+</script>
+
+</body>
+</html>

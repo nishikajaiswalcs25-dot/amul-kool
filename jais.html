@@ -1,0 +1,523 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Level 1</title>
+  <link rel="stylesheet"  href="style.css">
+</head>
+<body>
+    <h1 id="head">Nishi</h1>
+    <h2 >ily</h2>
+    <h3>piggu</h3>
+    <h4>ily</h4>
+    <h5>nishi</h5>
+    <p>AT LAST lobe wins</p>
+    <button>shinchan</button>
+</body>
+</html> -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Chotu</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+      background: linear-gradient(135deg, #ffb6c1, #ff69b4, #ffc0cb);
+      position: relative;
+      padding: 30px 15px;
+    }
+
+    .wrapper {
+      width: 100%;
+      max-width: 900px;
+      z-index: 2;
+    }
+
+    .card {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.20);
+      backdrop-filter: blur(12px);
+      padding: 35px 24px;
+      border-radius: 28px;
+      box-shadow: 0 15px 45px rgba(255, 105, 180, 0.35);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      margin-bottom: 18px;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 44px;
+      margin-bottom: 12px;
+      text-shadow: 0 0 18px rgba(255,255,255,0.35);
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 18px;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+
+    .name {
+      color: #fff7a8;
+      font-weight: bold;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 22px;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 999px;
+      background: #ffffff;
+      color: #ff4fa3;
+      font-size: 16px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 8px 18px rgba(255,255,255,0.25);
+      cursor: pointer;
+    }
+
+    .music-btn {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 50px;
+      height: 50px;
+      border: none;
+      border-radius: 50%;
+      background: white;
+      color: #ff4fa3;
+      font-size: 22px;
+      cursor: pointer;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+    }
+
+    .photos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .photo-box {
+      background: rgba(255,255,255,0.18);
+      padding: 10px;
+      border-radius: 18px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      overflow: hidden;
+    }
+
+    .photo-box img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 14px;
+      display: block;
+    }
+
+    .balloon {
+      position: absolute;
+      width: 28px;
+      height: 38px;
+      border-radius: 50% 50% 45% 45%;
+      animation: float 7s infinite ease-in-out;
+      opacity: 0.95;
+    }
+
+    .balloon::after {
+      content: "";
+      position: absolute;
+      width: 2px;
+      height: 60px;
+      background: rgba(255,255,255,0.7);
+      left: 50%;
+      top: 38px;
+      transform: translateX(-50%);
+    }
+
+    .b1 { left: 8%; top: 14%; background: #ff6fae; animation-delay: 0s; }
+    .b2 { left: 18%; top: 72%; background: #ff9fcf; animation-delay: 1s; }
+    .b3 { left: 82%; top: 12%; background: #ff4fa3; animation-delay: 2s; }
+    .b4 { left: 88%; top: 68%; background: #ffc2de; animation-delay: 3s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-40px); }
+    }
+  </style>
+</head>
+<body>
+  <audio id="bgMusic" loop>
+    <source src="song.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="balloon b1"></div>
+  <div class="balloon b2"></div>
+  <div class="balloon b3"></div>
+  <div class="balloon b4"></div>
+
+  <div class="wrapper">
+    <div class="card">
+      <button class="music-btn" id="musicBtn">▶</button>
+      <h1>Happy Birthday Him</h1>
+      <h2>For My Sweet <span class="name">Chotu</span></h2>
+      <p>Wishing you love, smile, and endless happiness.</p>
+      <p>May your day be full of pink vibes and sweet memories.</p>
+      <p>Stay happy always, Chotu.</p>
+      <a class="btn" href="#">Open Surprise</a>
+    </div>
+
+    <div class="photos">
+      <div class="photo-box"><img src="photo1.jpg" alt="Photo 1"></div>
+      <div class="photo-box"><img src="photo2.jpg" alt="Photo 2"></div>
+      <div class="photo-box"><img src="photo3.jpg" alt="Photo 3"></div>
+    </div>
+  </div>
+
+  <script>
+    const musicBtn = document.getElementById('musicBtn');
+    const bgMusic = document.getElementById('bgMusic');
+
+    musicBtn.addEventListener('click', async () => {
+      if (bgMusic.paused) {
+        await bgMusic.play();
+        musicBtn.textContent = '⏸';
+      } else {
+        bgMusic.pause();
+        musicBtn.textContent = '▶';
+      }
+    });
+  </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Chotu</title>
+  <style>
+    :root{
+      --pink1:#ffb6c1;
+      --pink2:#ff69b4;
+      --pink3:#ffc0cb;
+      --white:rgba(255,255,255,.92);
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+    body{
+      min-height:100vh;
+      overflow-x:hidden;
+      background:linear-gradient(135deg,var(--pink1),var(--pink2),var(--pink3));
+      color:#fff;
+      position:relative;
+    }
+
+    .bg-glow{
+      position:fixed; inset:0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,.28), transparent 20%),
+        radial-gradient(circle at 80% 30%, rgba(255,255,255,.18), transparent 22%),
+        radial-gradient(circle at 50% 80%, rgba(255,255,255,.16), transparent 24%);
+      pointer-events:none;
+      z-index:0;
+    }
+
+    .wrap{
+      position:relative;
+      z-index:2;
+      width:min(1100px,92vw);
+      margin:0 auto;
+      padding:28px 0 40px;
+    }
+
+    .hero{
+      position:relative;
+      background:rgba(255,255,255,.18);
+      border:1px solid rgba(255,255,255,.28);
+      backdrop-filter:blur(12px);
+      border-radius:30px;
+      box-shadow:0 18px 50px rgba(255,105,180,.28);
+      padding:34px 22px 28px;
+      text-align:center;
+      overflow:hidden;
+    }
+
+    .music-btn{
+      position:absolute; top:18px; right:18px;
+      width:54px; height:54px;
+      border:none; border-radius:50%;
+      background:#fff; color:#ff4fa3;
+      font-size:22px; cursor:pointer;
+      box-shadow:0 10px 22px rgba(0,0,0,.15);
+    }
+
+    h1{
+      font-size:clamp(42px,7vw,70px);
+      line-height:1;
+      margin-top:8px;
+      text-shadow:0 2px 14px rgba(255,255,255,.35);
+    }
+
+    .sub{
+      font-size:clamp(18px,2.8vw,25px);
+      margin:14px 0 10px;
+      font-weight:600;
+    }
+
+    .name{
+      color:#fff7a8;
+      font-weight:800;
+    }
+
+    .desc{
+      max-width:760px;
+      margin:0 auto;
+      font-size:18px;
+      line-height:1.7;
+      opacity:.98;
+    }
+
+    .cta-row{
+      display:flex;
+      justify-content:center;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:22px;
+    }
+
+    .btn{
+      border:none;
+      border-radius:999px;
+      padding:12px 22px;
+      background:#fff;
+      color:#ff4fa3;
+      font-weight:800;
+      cursor:pointer;
+      text-decoration:none;
+      box-shadow:0 10px 20px rgba(255,255,255,.22);
+    }
+
+    .ghost{
+      background:transparent;
+      color:#fff;
+      border:1px solid rgba(255,255,255,.5);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+      gap:16px;
+      margin-top:18px;
+    }
+
+    .panel{
+      background:rgba(255,255,255,.18);
+      border:1px solid rgba(255,255,255,.22);
+      backdrop-filter:blur(10px);
+      border-radius:24px;
+      padding:16px;
+      box-shadow:0 10px 28px rgba(0,0,0,.12);
+    }
+
+    .panel h3{
+      font-size:22px;
+      margin-bottom:10px;
+    }
+
+    .photos{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+      gap:12px;
+      margin-top:12px;
+    }
+
+    .photo-box{
+      border-radius:18px;
+      overflow:hidden;
+      background:rgba(255,255,255,.16);
+      padding:8px;
+    }
+
+    .photo-box img{
+      width:100%;
+      height:200px;
+      object-fit:cover;
+      border-radius:12px;
+      display:block;
+    }
+
+    .reveal{
+      display:none;
+      margin-top:14px;
+      font-size:18px;
+      line-height:1.7;
+      background:rgba(255,255,255,.16);
+      border-radius:18px;
+      padding:16px;
+    }
+
+    .show{display:block}
+
+    .heart,.balloon,.spark{
+      position:absolute;
+      pointer-events:none;
+      z-index:1;
+    }
+
+    .heart{
+      color:rgba(255,255,255,.88);
+      font-size:22px;
+      animation: drift 6s infinite ease-in-out;
+    }
+
+    .balloon{
+      width:28px;height:38px;border-radius:50% 50% 45% 45%;
+      animation: float 7s infinite ease-in-out;
+      opacity:.95;
+    }
+    .balloon::after{
+      content:"";
+      position:absolute;
+      width:2px;height:60px;
+      background:rgba(255,255,255,.7);
+      left:50%;top:38px;transform:translateX(-50%);
+    }
+
+    .b1{left:6%;top:18%;background:#ff6fae}
+    .b2{right:8%;top:12%;background:#ffd1e8}
+    .b3{left:12%;bottom:10%;background:#ff8fc8}
+    .b4{right:14%;bottom:14%;background:#ff4fa3}
+
+    .h1{left:18%;top:26%}
+    .h2{right:18%;top:36%}
+    .h3{left:52%;top:8%}
+    .h4{left:74%;bottom:18%}
+    .h5{left:8%;bottom:22%}
+
+    .spark{
+      width:8px;height:8px;border-radius:50%;
+      background:#fff;
+      box-shadow:0 0 18px rgba(255,255,255,.9);
+      animation: twinkle 2.5s infinite ease-in-out;
+    }
+
+    .s1{left:25%;top:12%}.s2{left:68%;top:20%}.s3{right:20%;top:58%}.s4{left:42%;bottom:18%}.s5{right:34%;bottom:10%}
+
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-42px)}}
+    @keyframes drift{0%,100%{transform:translateY(0) scale(1);opacity:.75}50%{transform:translateY(-18px) scale(1.1);opacity:1}}
+    @keyframes twinkle{0%,100%{transform:scale(.8);opacity:.4}50%{transform:scale(1.5);opacity:1}}
+    @keyframes pop{0%{transform:scale(.7);opacity:0}100%{transform:scale(1);opacity:1}}
+
+    .hero,.panel{animation:pop .7s ease both}
+  </style>
+</head>
+<body>
+  <audio id="bgMusic" loop>
+    <source src="song.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="bg-glow"></div>
+
+  <div class="balloon b1"></div>
+  <div class="balloon b2"></div>
+  <div class="balloon b3"></div>
+  <div class="balloon b4"></div>
+
+  <div class="heart h1">♡</div>
+  <div class="heart h2">♡</div>
+  <div class="heart h3">♡</div>
+  <div class="heart h4">♡</div>
+  <div class="heart h5">♡</div>
+
+  <div class="spark s1"></div>
+  <div class="spark s2"></div>
+  <div class="spark s3"></div>
+  <div class="spark s4"></div>
+  <div class="spark s5"></div>
+
+  <div class="wrap">
+    <section class="hero">
+      <button class="music-btn" id="musicBtn">▶</button>
+      <h1>Happy Birthday</h1>
+      <div class="sub">For my sweet <span class="name">Chotu</span></div>
+      <p class="desc">
+        Aaj ka din sirf tere liye hai. Smile, love, memories aur pink vibes ke saath ye page special banaya gaya hai.
+      </p>
+
+      <div class="cta-row">
+        <button class="btn" id="surpriseBtn">Open Surprise</button>
+        <a class="btn ghost" href="#photos">See Photos</a>
+      </div>
+
+      <div class="reveal" id="surpriseBox">
+        <p>Tu meri life ki sabse cute aur special person hai. Tere liye ye chhota sa surprise page, pink hearts aur pyare moments ke saath.</p>
+      </div>
+    </section>
+
+    <section class="grid" style="margin-top:18px;">
+      <div class="panel">
+        <h3>Our Memories</h3>
+        <p>Yahan apni special line, date, ya short wish add kar sakte ho.</p>
+      </div>
+
+      <div class="panel">
+        <h3>Message</h3>
+        <p>“Him” ka feel aur “Chotu” ka naam rakh kar page ko personalized banaya gaya hai.</p>
+      </div>
+    </section>
+
+    <section class="panel" id="photos" style="margin-top:18px;">
+      <h3>Photo Gallery</h3>
+      <div class="photos">
+        <div class="photo-box"><img src="photo1.jpg" alt="Photo 1"></div>
+        <div class="photo-box"><img src="photo2.jpg" alt="Photo 2"></div>
+        <div class="photo-box"><img src="photo3.jpg" alt="Photo 3"></div>
+        <div class="photo-box"><img src="photo4.jpg" alt="Photo 4"></div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const bgMusic = document.getElementById('bgMusic');
+    const musicBtn = document.getElementById('musicBtn');
+    const surpriseBtn = document.getElementById('surpriseBtn');
+    const surpriseBox = document.getElementById('surpriseBox');
+
+    musicBtn.addEventListener('click', async () => {
+      if (bgMusic.paused) {
+        await bgMusic.play();
+        musicBtn.textContent = '⏸';
+      } else {
+        bgMusic.pause();
+        musicBtn.textContent = '▶';
+      }
+    });
+
+    surpriseBtn.addEventListener('click', () => {
+      surpriseBox.classList.toggle('show');
+    });
+  </script>
+</body>
+</html>

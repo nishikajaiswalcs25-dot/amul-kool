@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Spider Clock</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:black;
+    overflow:hidden;
+}
+
+.clock{
+    position:relative;
+    width:400px;
+    height:400px;
+    border:2px solid rgba(255,255,255,0.2);
+    border-radius:50%;
+}
+
+.number{
+    position:absolute;
+    color:#ff9d00;
+    font-size:24px;
+    font-family:Arial, sans-serif;
+    left:50%;
+    top:50%;
+    transform-origin:center;
+}
+
+.spider{
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:40px;
+    height:40px;
+    background:#ff9d00;
+    border-radius:50%;
+    transform:translate(-50%,-50%);
+    z-index:10;
+    box-shadow:0 0 20px #ff9d00;
+}
+
+.leg{
+    position:absolute;
+    width:80px;
+    height:3px;
+    background:#ff9d00;
+    top:50%;
+    left:50%;
+    transform-origin:left center;
+    box-shadow:0 0 10px #ff9d00;
+}
+
+.hand{
+    position:absolute;
+    height:3px;
+    background:#ff9d00;
+    top:50%;
+    left:50%;
+    transform-origin:left center;
+    border-radius:10px;
+    box-shadow:0 0 15px #ff9d00;
+}
+
+.hour{
+    width:90px;
+}
+
+.minute{
+    width:130px;
+}
+
+.second{
+    width:160px;
+    height:2px;
+    background:#fff;
+}
+
+.center{
+    position:absolute;
+    width:15px;
+    height:15px;
+    background:#fff;
+    border-radius:50%;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    z-index:20;
+}
+</style>
+</head>
+
+<body>
+
+<div class="clock">
+
+    <div class="spider"></div>
+
+    <div class="leg" style="transform:translate(-50%,-50%) rotate(30deg)"></div>
+    <div class="leg" style="transform:translate(-50%,-50%) rotate(60deg)"></div>
+    <div class="leg" style="transform:translate(-50%,-50%) rotate(120deg)"></div>
+    <div class="leg" style="transform:translate(-50%,-50%) rotate(150deg)"></div>
+    <div class="leg" style="transform:translate(-50%,-50%) rotate(210deg)"></div>
+    <div class="leg" style="transform:translate(-50%,-50%) rotate(240deg)"></div>
+    <div class="leg" style="transform:translate(-50%,-50%) rotate(300deg)"></div>
+    <div class="leg" style="transform:translate(-50%,-50%) rotate(330deg)"></div>
+
+    <div class="hand hour" id="hour"></div>
+    <div class="hand minute" id="minute"></div>
+    <div class="hand second" id="second"></div>
+
+    <div class="center"></div>
+
+</div>
+
+<script>
+const clock = document.querySelector(".clock");
+
+for(let i=1; i<=12; i++){
+
+    const num = document.createElement("div");
+    num.classList.add("number");
+    num.innerText = i;
+
+    let angle = (i * 30) * Math.PI / 180;
+
+    let x = 170 * Math.sin(angle);
+    let y = -170 * Math.cos(angle);
+
+    num.style.transform = `
+        translate(-50%, -50%)
+        translate(${x}px, ${y}px)
+    `;
+
+    clock.appendChild(num);
+}
+
+const hourHand = document.getElementById("hour");
+const minuteHand = document.getElementById("minute");
+const secondHand = document.getElementById("second");
+
+function updateClock(){
+
+    const now = new Date();
+
+    const sec = now.getSeconds();
+    const min = now.getMinutes();
+    const hr = now.getHours();
+
+    const secDeg = sec * 6;
+    const minDeg = min * 6 + sec * 0.1;
+    const hrDeg = hr * 30 + min * 0.5;
+
+    secondHand.style.transform =
+        `translateY(-50%) rotate(${secDeg}deg)`;
+
+    minuteHand.style.transform =
+        `translateY(-50%) rotate(${minDeg}deg)`;
+
+    hourHand.style.transform =
+        `translateY(-50%) rotate(${hrDeg}deg)`;
+}
+
+setInterval(updateClock,1000);
+
+updateClock();
+</script>
+
+</body>
+</html>
